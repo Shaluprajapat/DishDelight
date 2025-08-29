@@ -1,0 +1,327 @@
+/* ===========================
+   General Styles
+=========================== */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff8f0, #ffeedd);
+  color: #333;
+  transition: background 0.4s, color 0.4s;
+}
+
+body.dark {
+  background: linear-gradient(to bottom, #1f2937, #111827);
+  color: #f3f4f6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* ===========================
+   Layout
+=========================== */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #f97316, #facc15); /* warm food colors */
+  color: white;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+  letter-spacing: 1px;
+}
+
+.app-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.app-footer {
+  background-color: #fff1e0;
+  color: #555;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.95rem;
+  border-top: 1px solid #ffd7b5;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+.navbar {
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  margin: 10px 20px 20px 20px;
+}
+
+.navbar-brand a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: white;
+  font-weight: 500;
+  position: relative;
+}
+
+.navbar-links a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.darkmode-btn {
+  background: #fff3e0;
+  color: #9c4221;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.darkmode-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.nav-btn,
+.back-button,
+.search-button,
+.favorite-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.nav-btn,
+.search-button {
+  background: #fb923c;
+  color: white;
+}
+
+.nav-btn:hover,
+.search-button:hover {
+  background: #f97316;
+  transform: translateY(-2px);
+}
+
+.back-button {
+  background: #f59e0b;
+  color: white;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   Search
+=========================== */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.search-input {
+  padding: 14px;
+  width: 320px;
+  border: 2px solid #fb923c;
+  border-radius: 15px 0 0 15px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 10px rgba(251,146,60,0.4);
+}
+
+.search-button {
+  border-radius: 0 15px 15px 0;
+}
+
+/* ===========================
+   Recipe Grid & Cards
+=========================== */
+.recipe-grid,
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  padding: 0 20px 20px;
+}
+
+.recipe-card {
+  background: linear-gradient(145deg, #fff5f0, #ffe4d6);
+  border-radius: 25px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.recipe-card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 25px 25px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover .recipe-card-image {
+  transform: scale(1.05);
+}
+
+.recipe-card-content {
+  padding: 16px;
+}
+
+.recipe-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #d97706;
+}
+
+.recipe-card-text {
+  font-size: 1rem;
+  color: #7c4d1a;
+  line-height: 1.5;
+}
+
+/* ===========================
+   Recipe Details
+=========================== */
+.recipe-details {
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #fff5f0, #ffe4d6);
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.recipe-title {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #f97316;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.15);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.recipe-image:hover {
+  transform: scale(1.03);
+}
+
+.ingredients-list {
+  list-style: disc;
+  padding-left: 24px;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  color: #7c4d1a;
+}
+
+.instructions {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #5c4033;
+}
+
+.youtube-link a {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.youtube-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Home Page Title
+=========================== */
+.home-title {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 50px 0 30px 0;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+body.dark .home-title {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
